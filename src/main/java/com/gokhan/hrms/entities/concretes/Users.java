@@ -8,10 +8,12 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 
-@MappedSuperclass
+@Inheritance(strategy = InheritanceType.JOINED)
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Entity
+@Table(name = "users")
 public class Users {
 
     @Id
@@ -29,4 +31,5 @@ public class Users {
 
     @Column(name = "password_again")
     private String passwordAgain;
+
 }
